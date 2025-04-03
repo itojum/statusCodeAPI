@@ -1,4 +1,4 @@
-import { Context } from "hono";
+import type { Context } from "hono";
 import { getStatusCode, getAllStatusCodes } from "../storage/kvStorage.ts";
 import { StatusRange, StatusCodeResponse, ErrorResponse } from "./types.ts";
 import { STATUS_CODE_RANGES, ERROR_MESSAGES } from "./constants.ts";
