@@ -1,5 +1,9 @@
-const main = () => {
-  console.log("Hello, World!")
+import { fetchStatusCodes } from "./fetchStatusCodes.ts";
+
+
+const main = async () => {
+  const statusCodes = await fetchStatusCodes()
+  console.log(statusCodes)
 }
 
 main()
