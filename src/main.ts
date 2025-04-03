@@ -1,5 +1,9 @@
+import { serve } from "https://deno.land/std@0.208.0/http/server.ts";
 import { storeStatusCodes, getAllStatusCodes } from "./storage/kvStorage.ts";
+import api from "./api/index.ts";
 import { DAY } from "https://deno.land/std@0.208.0/datetime/mod.ts";
+
+const port = 8000;
 
 const updateStatusCodes = async () => {
   console.log("Starting status codes update...");
@@ -13,11 +17,12 @@ const updateStatusCodes = async () => {
   }
 };
 
-// 初回実行
-updateStatusCodes();
+// 初回データ更新
+await updateStatusCodes();
 
 // 24時間ごとに更新
 setInterval(updateStatusCodes, DAY);
 
-// アプリケーションを継続実行
-console.log("Status code updater is running. Updates will occur every 24 hours.");
+// サーバー起動
+console.log(`Server running at http://localhost:${port}`);
+await serve(api.fetch, { port });

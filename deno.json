@@ -4,6 +4,7 @@
     "test": "deno test --allow-net --allow-read --allow-write --unstable-kv"
   },
   "imports": {
-    "std/": "jsr:@std/"
+    "std/": "jsr:@std/",
+    "hono": "npm:hono@^4.7.5"
   }
 }
