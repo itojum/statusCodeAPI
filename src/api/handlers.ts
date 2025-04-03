@@ -31,7 +31,6 @@ export const getAllStatusCodesHandler = async (c: Context) => {
 export const getStatusCodeHandler = async (c: Context) => {
   const code = c.req.param("code");
   const statusCode = await getStatusCode(code);
-  
   if (!statusCode) {
     return c.json<ErrorResponse>({
       error: ERROR_MESSAGES.NOT_FOUND,
