@@ -1,4 +1,3 @@
-import { fetchStatusCodes } from "./hooks/fetchStatusCodes.ts";
 import { storeStatusCodes, getAllStatusCodes } from "./storage/kvStorage.ts";
 
 const main = async () => {

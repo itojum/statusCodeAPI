@@ -1,7 +1,7 @@
 {
   "tasks": {
-    "start": "deno run --allow-net --allow-read --allow-write src/main.ts",
-    "test": "deno test --allow-net --allow-read --allow-write"
+    "start": "deno run --allow-net --allow-read --allow-write --unstable-kv src/main.ts",
+    "test": "deno test --allow-net --allow-read --allow-write --unstable-kv"
   },
   "imports": {
     "std/": "jsr:@std/"
