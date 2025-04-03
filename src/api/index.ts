@@ -1,6 +1,5 @@
 import { Hono } from "hono";
 import { getStatusCode, getAllStatusCodes } from "../storage/kvStorage.ts";
-import { StatusCode } from "../types/types.ts";
 
 const app = new Hono();
 
