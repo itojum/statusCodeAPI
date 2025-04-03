@@ -9,6 +9,6 @@ export const STATUS_CODE_RANGES: Record<StatusRange, (code: number) => boolean> 
 } as const;
 
 export const ERROR_MESSAGES = {
-  NOT_FOUND: "Status code not found",
+  NOT_FOUND: "Unassigned",
   INVALID_RANGE: "Invalid status code range",
 } as const; 
