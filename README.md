@@ -92,7 +92,7 @@ GET /status-codes/200
   "error": "Unassigned",
   "code": 404
 }
-
+```
 
 ## ライセンス
 
