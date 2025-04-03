@@ -1,6 +1,5 @@
 import { assertEquals, assertExists } from "jsr:@std/assert";
 import { storeStatusCodes, getStatusCode, getAllStatusCodes } from "./kvStorage.ts";
-import { StatusCode } from "../types/types.ts";
 
 Deno.test("storeStatusCodes - ステータスコードを正しく保存できる", async () => {
   const result = await storeStatusCodes();
