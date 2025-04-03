@@ -3,6 +3,8 @@ import { getStatusCode, getAllStatusCodes } from "../storage/kvStorage.ts";
 import { StatusRange, StatusCodeResponse, ErrorResponse } from "./types.ts";
 import { STATUS_CODE_RANGES, ERROR_MESSAGES } from "./constants.ts";
 
+// 全ステータスコードを取得するハンドラー
+// オプションで特定の範囲（2xx, 3xxなど）でフィルタリング可能
 export const getAllStatusCodesHandler = async (c: Context) => {
   const range = c.req.query("range") as StatusRange;
   const statusCodes = await getAllStatusCodes();
@@ -24,6 +26,8 @@ export const getAllStatusCodesHandler = async (c: Context) => {
   });
 };
 
+// 特定のステータスコードを取得するハンドラー
+// コードが存在しない場合は404エラーを返す
 export const getStatusCodeHandler = async (c: Context) => {
   const code = c.req.param("code");
   const statusCode = await getStatusCode(code);

@@ -1,8 +1,11 @@
 import { fetchStatusCodes } from "../hooks/fetchStatusCodes.ts";
 import { StatusCode } from "../types/types.ts";
 
+// Deno KVデータベースの初期化
 const kv = await Deno.openKv();
 
+// ステータスコードデータをKVストレージに保存
+// 成功時はtrue、失敗時はfalseを返す
 export const storeStatusCodes = async (): Promise<boolean> => {
   try {
     const statusCodes = await fetchStatusCodes();
@@ -20,6 +23,8 @@ export const storeStatusCodes = async (): Promise<boolean> => {
   }
 };
 
+// 特定のステータスコードを取得
+// 存在しない場合はnullを返す
 export const getStatusCode = async (code: string): Promise<StatusCode | null> => {
   try {
     const result = await kv.get<StatusCode>(["statusCodes", code]);
@@ -30,6 +35,8 @@ export const getStatusCode = async (code: string): Promise<StatusCode | null> =>
   }
 };
 
+// 全ステータスコードを取得
+// エラー時は空配列を返す
 export const getAllStatusCodes = async (): Promise<StatusCode[]> => {
   try {
     const entries = kv.list<StatusCode>({ prefix: ["statusCodes"] });

@@ -1,8 +1,10 @@
 import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
 
-
+// IANAのステータスコード一覧ページ
 const scrapingUrl = "https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml";
 
+// IANAのウェブサイトからステータスコード一覧をスクレイピング
+// 未割り当てのコードは除外
 export const fetchStatusCodes = async () => {
   const resp = await fetch(scrapingUrl)
   const source = await resp.text()
